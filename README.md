@@ -10,4 +10,4 @@ Decodes the calldata of a batcher transaction and returns the L2 transactions wi
 NB! SpanBatch decoding is unimplemented at the moment.
 
 
-Made with :yellow_heart: at Blocktorch
+Made with 💛 at Blocktorch
