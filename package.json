@@ -10,6 +10,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^20.11.4"
+    "@types/node": "^20.11.4",
+    "tslib": "^2.6.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "ethereumjs-util": "^7.1.5",
+    "ethers": "^5.7.2",
+    "rlp": "^3.0.0",
+    "viem": "^2.1.1"
   }
 }
