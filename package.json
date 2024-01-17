@@ -1,5 +1,5 @@
 {
-  "name": "optimism-batch-decoder",
+  "name": "@blocktorch/optimism-batch-decoder",
   "version": "1.0.0",
   "description": "Decode optimism rollup batcher transactions",
   "main": "dist/index.js",
