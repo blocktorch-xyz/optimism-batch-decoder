@@ -28,7 +28,6 @@ export type InnerBatch = {
   transactions: Transactions
 }
 
-
 type Batch = {
   inner: InnerBatch
 }
@@ -55,32 +54,32 @@ export const parseBatchesData = async (compressedBatches: string): Promise<Batch
 }
 
 const decompressBatches = async (compressedBatches: string): Promise<Buffer> => {
-  const inputBuffer = Buffer.from(compressedBatches, 'hex');
+  const inputBuffer = Buffer.from(compressedBatches, 'hex')
   try {
     // Decompress the input buffer
-    const decompress = zlib.createInflate({ maxOutputLength: MAX_BYTES_PER_CHANNEL });
-    const decompressStream = stream.Readable.from(inputBuffer);
+    const decompress = zlib.createInflate({ maxOutputLength: MAX_BYTES_PER_CHANNEL })
+    const decompressStream = stream.Readable.from(inputBuffer)
 
-    const chunks: Buffer[] = [];
+    const chunks: Buffer[] = []
     for await (const chunk of decompressStream.pipe(decompress)) {
-        chunks.push(chunk);
+      chunks.push(chunk)
     }
-    return Buffer.concat(chunks);
+    return Buffer.concat(chunks)
   } catch (err) {
-    console.error('Error in decompression:', err);
-    throw err;
+    console.error('Error in decompression:', err)
+    throw err
   }
 }
 
 const decodeBatch = (decodedBatch: Uint8Array | NestedUint8Array): Batch => {
   if (decodedBatch.length < 1) throw new Error('Batch too short')
-	// first byte is the batch type
+  // first byte is the batch type
   switch (decodedBatch[0]) {
-	case BatchType.SingularBatch:
-		return { inner: SingularBatch.decode(decodedBatch.slice(1)) }
-	case BatchType.SpanBatch:
-		return { inner: RawSpanBatch.decode(decodedBatch.slice(1)) }
-	default:
-		throw new Error(`Unrecognized batch type: ${decodedBatch[0]}`)
-	}
+    case BatchType.SingularBatch:
+      return { inner: SingularBatch.decode(decodedBatch.slice(1)) }
+    case BatchType.SpanBatch:
+      return { inner: RawSpanBatch.decode(decodedBatch.slice(1)) }
+    default:
+      throw new Error(`Unrecognized batch type: ${decodedBatch[0]}`)
+  }
 }
