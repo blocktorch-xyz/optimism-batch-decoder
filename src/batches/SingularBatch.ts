@@ -3,6 +3,7 @@ import type { InnerBatch } from './batch'
 import { BigNumber } from 'ethers'
 import { keccak } from 'ethereumjs-util'
 import { parseTransaction } from 'viem/op-stack'
+import { OpStackTransactionSerialized } from 'viem/chains'
 
 export class SingularBatch {
   static decode(data: Uint8Array | NestedUint8Array): InnerBatch {
@@ -15,11 +16,11 @@ export class SingularBatch {
       epochNum: BigNumber.from(decoded[1]).toNumber(),
       epochHash: `0x${Buffer.from(decoded[2] as Uint8Array).toString('hex')}`,
       timestamp: BigNumber.from(decoded[3]).toNumber(),
-      transactions: transactionList.map((txData: any) => {
+      transactions: transactionList.map((txData) => {
         const transactionBuffer = Buffer.from(txData.slice(2), 'hex')
         const transactionHash: `0x${string}` = `0x${keccak(transactionBuffer).toString('hex')}`
         return {
-          ...parseTransaction(txData),
+          ...parseTransaction(txData as OpStackTransactionSerialized),
           hash: transactionHash
         }
       })
