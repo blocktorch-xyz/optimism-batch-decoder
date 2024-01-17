@@ -1,7 +1,7 @@
 {
   "name": "optimism-batch-decoder",
   "version": "1.0.0",
-  "description": "",
+  "description": "Decode optimism rollup batcher transactions",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -14,9 +14,23 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "web3",
+    "optimism",
+    "rollups",
+    "decoder",
+    "batcher"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blocktorch-xyz/optimism-batch-decoder.git"
+  },
+  "author": "iuwqyir <[toomas@blocktorch.xyz](mailto:toomas@blocktorch.xyz)>",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blocktorch-xyz/optimism-batch-decoder/issues"
+  },
+  "homepage": "https://github.com/blocktorch-xyz/optimism-batch-decoder#readme",
   "devDependencies": {
     "@commitlint/cli": "^18.4.4",
     "@commitlint/config-conventional": "^18.4.4",
