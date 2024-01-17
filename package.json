@@ -15,7 +15,7 @@
     "prepare": "husky install",
     "prepublishOnly": "tsc",
     "release": "npm version patch && npm publish . && git push && git push --tags",
-    "semantic-release": "semantic-release --dry-run"
+    "semantic-release": "semantic-release"
   },
   "keywords": [
     "web3",
