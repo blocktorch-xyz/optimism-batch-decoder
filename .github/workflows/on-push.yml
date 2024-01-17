@@ -3,7 +3,7 @@ name: Push workflow
 on: push
 
 jobs:
-  test:
+  build:
     if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
     runs-on: ubuntu-latest
     steps:
@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: 20
       - name: Cache node modules
-        uses: actions/cache@v4
+        uses: actions/cache@v3
         env:
           cache-name: cache-node-modules
         with:
