@@ -1,15 +1,63 @@
 {
-  "name": "optimism-batch-decoder",
+  "name": "@blocktorch/optimism-batch-decoder",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Decode optimism rollup batcher transactions",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "fmt": "prettier --write src",
+    "fmt:check": "prettier --check src",
+    "lint": "eslint src",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "prepublishOnly": "tsc",
+    "release": "npm version patch && npm publish . && git push && git push --tags",
+    "semantic-release": "semantic-release"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "web3",
+    "optimism",
+    "rollups",
+    "decoder",
+    "batcher"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blocktorch-xyz/optimism-batch-decoder.git"
+  },
+  "author": "iuwqyir <[toomas@blocktorch.xyz](mailto:toomas@blocktorch.xyz)>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blocktorch-xyz/optimism-batch-decoder/issues"
+  },
+  "homepage": "https://github.com/blocktorch-xyz/optimism-batch-decoder#readme",
+  "publishConfig": {
+    "access": "public",
+    "pkgRoot": "."
+  },
   "devDependencies": {
-    "@types/node": "^20.11.4"
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
+    "@semantic-release/commit-analyzer": "^11.1.0",
+    "@semantic-release/git": "^10.0.1",
+    "@types/node": "^20.11.4",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^8.0.0",
+    "prettier": "^3.2.3",
+    "semantic-release": "^23.0.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "ethereumjs-util": "^7.1.5",
+    "ethers": "^5.7.2",
+    "rlp": "^3.0.0",
+    "viem": "^2.1.1"
   }
 }
