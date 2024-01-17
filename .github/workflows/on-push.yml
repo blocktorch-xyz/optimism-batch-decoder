@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ssh-key: ${{ secrets.PUBLIC_PACKAGE_PUBLISH_SECRET }}
+          token: ${{ secrets.PUBLIC_PACKAGE_PUBLISH_SECRET }}
       - uses: actions/setup-node@v4
         with:
           node-version: 20
