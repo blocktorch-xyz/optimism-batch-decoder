@@ -15,3 +15,7 @@ export const decodeBatcherTransaction = async (txHash: string, providerUrl: stri
   if (!tx.data) throw new Error('Transaction is missing calldata')
   return await extractBatcherTransaction(tx.data)
 }
+
+export const decodeBatcherTransactionCalldata = async (calldata: string): Promise<BatcherTransaction> => {
+  return await extractBatcherTransaction(calldata)
+}
