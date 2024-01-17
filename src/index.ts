@@ -1,10 +1,12 @@
+import { ethers } from 'ethers'
 import fs from 'fs'
 import path from 'path'
 import { BatcherTransaction, extractBatcherTransaction } from './transactions/batcherTransaction'
-import { ethers } from 'ethers'
 
-export const testWithExampleData = async (): Promise<BatcherTransaction> => {
-  const examplePath = path.join(path.dirname(__dirname), 'example-data/calldata.txt')
+export const testWithExampleData = async (
+  filePath: string = 'example-data/calldata.txt'
+): Promise<BatcherTransaction> => {
+  const examplePath = path.join(path.dirname(__dirname), filePath)
   const exampleCallData = fs.readFileSync(examplePath).toString()
   return await extractBatcherTransaction(exampleCallData)
 }
