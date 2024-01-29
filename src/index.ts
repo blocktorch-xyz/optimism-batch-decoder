@@ -1,4 +1,4 @@
-import { ethers } from 'ethers'
+import { JsonRpcProvider } from '@ethersproject/providers'
 import fs from 'fs'
 import path from 'path'
 import { BatcherTransaction, extractBatcherTransaction } from './transactions/batcherTransaction'
@@ -12,7 +12,7 @@ export const testWithExampleData = async (
 }
 
 export const decodeBatcherTransaction = async (txHash: string, providerUrl: string): Promise<BatcherTransaction> => {
-  const provider = new ethers.providers.JsonRpcProvider(providerUrl)
+  const provider = new JsonRpcProvider(providerUrl)
   const tx = await provider.getTransaction(txHash)
   if (!tx.data) throw new Error('Transaction is missing calldata')
   return await extractBatcherTransaction(tx.data)
