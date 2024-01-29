@@ -1,9 +1,9 @@
-import rlp, { NestedUint8Array } from 'rlp'
-import type { InnerBatch } from './batch'
-import { BigNumber } from 'ethers'
+import { BigNumber } from '@ethersproject/bignumber'
 import { keccak } from 'ethereumjs-util'
-import { parseTransaction } from 'viem/op-stack'
+import rlp, { NestedUint8Array } from 'rlp'
 import { OpStackTransactionSerialized } from 'viem/chains'
+import { parseTransaction } from 'viem/op-stack'
+import type { InnerBatch } from './batch'
 
 export class SingularBatch {
   static decode(data: Uint8Array | NestedUint8Array): InnerBatch {
