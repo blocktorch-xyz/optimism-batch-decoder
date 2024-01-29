@@ -1,6 +1,6 @@
 {
   "name": "@blocktorch/optimism-batch-decoder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Decode optimism rollup batcher transactions",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
